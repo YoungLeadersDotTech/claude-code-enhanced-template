@@ -1,0 +1,47 @@
+{
+  "profile": "balanced",
+  "retry": {
+    "max_retries": 3,
+    "initial_delay": 1.0,
+    "max_delay": 60.0,
+    "exponential_base": 2.0,
+    "jitter": true,
+    "retry_on_status_codes": [429, 500, 502, 503, 504]
+  },
+  "rate_limit": {
+    "requests_per_second": 10.0,
+    "burst_size": 20,
+    "min_request_interval": 0.1
+  },
+  "circuit_breaker": {
+    "failure_threshold": 5,
+    "recovery_timeout": 60.0,
+    "expected_exception_types": ["RequestException", "Timeout"]
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 300,
+    "max_size": 1000,
+    "cache_dir": ".cache/context_exporter"
+  },
+  "timeout": {
+    "connect_timeout": 10.0,
+    "read_timeout": 30.0
+  },
+  "batch": {
+    "confluence_batch_size": 100,
+    "jira_batch_size": 50,
+    "max_concurrent_requests": 5
+  },
+  "checkpoint": {
+    "enabled": true,
+    "checkpoint_dir": ".checkpoints",
+    "checkpoint_interval": 10
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "json",
+    "log_file": "context_exporter.log",
+    "console_output": true
+  }
+}
