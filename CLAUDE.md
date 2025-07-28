@@ -13,7 +13,7 @@
 - Template placeholders exist: `[Your Project Name]`, `[e.g., React, TypeScript...]`, etc.
 - Documentation files missing: No `claude-code-core-reference.md` in directory
 - Fresh extractor detected: `claude_docs_extractor.js` present but no extracted docs
-- CSV file present but no corresponding `.md` files
+- kindex file present but no corresponding documentation extracted
 
 #### Required Auto-Setup Sequence:
 1. **Immediate notification**:
@@ -94,7 +94,7 @@ If auto-setup fails or user wants manual control:
 ### Documentation Updates & CSV Replacement
 **For updating Claude Code documentation with new releases:**
 
-1. **Auto-detect new CSV files**: Look for newer `All_claude_docs_metadata_enriched_output_markdown_*.csv` files
+1. **Auto-detect new documentation files**: Look for newer `kindex_claude_markdown_*.csv` files or other `kindex_*` formats
 
 2. **Prompt for update**:
    ```
@@ -122,7 +122,7 @@ If auto-setup fails or user wants manual control:
 - Has the project purpose evolved based on recent code changes?
 - Are new frameworks or major dependencies being used?
 - Has the file structure changed substantially?
-- Are there newer Claude Code documentation files available?
+- Are there newer kindex documentation files available (e.g., `kindex_claude_markdown_*.csv`)?
 
 **If updates needed:**
 ```
@@ -132,7 +132,7 @@ Your project seems to have evolved:
 - [Specific changes detected]
 - [New technologies found]
 - [Updated purpose based on recent work]
-- [New documentation available: date of newer CSV file]
+- [New documentation available: date of newer kindex file]
 
 Should I refresh the CLAUDE.md with current project state?
 ```
@@ -140,7 +140,7 @@ Should I refresh the CLAUDE.md with current project state?
 ### Required Setup Files
 **This template expects these files in the project directory:**
 - `claude_docs_extractor.js` - Documentation extraction script
-- `All_claude_docs_metadata_enriched_output_markdown_YYYYMMDD.csv` - Claude Code documentation
+- `kindex_<keyword>_<texttype>_<yyyymmdd>.<filetype>` - Claude Code documentation (e.g., `kindex_claude_markdown_20250728.csv`)
 - `CLAUDE.md` - This configuration file (template → customized)
 
 ### Project Analysis Commands
@@ -150,7 +150,7 @@ Use these to gather project information:
 - Analyze directory structure for framework patterns
 - Look for configuration files (`.babelrc`, `tsconfig.json`, etc.)
 - Review recent commit messages or file changes for project evolution
-- Scan for newer documentation CSV files to keep Claude Code knowledge current
+- Scan for newer kindex files (pattern: `kindex_<keyword>_<texttype>_<yyyymmdd>.<filetype>`) to keep Claude Code knowledge current
 
 ## Core Claude Code Capabilities
 - **Terminal Integration**: Operates directly in your terminal, understanding project context
@@ -548,7 +548,7 @@ JWT_SECRET=your-secret-key
 4. **Testing**: Ask for test coverage, I'll write appropriate tests with clear structure
 
 ### Documentation Integration
-The attached CSV file contains 784 entries of Claude Code documentation that can be referenced for:
+The kindex files (format: `kindex_<keyword>_<texttype>_<yyyymmdd>.<filetype>`) contain Claude Code documentation that can be referenced for:
 - Advanced mechanics and optimization techniques
 - Troubleshooting common issues
 - Best practices from the community
